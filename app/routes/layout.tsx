@@ -23,14 +23,14 @@ export default function Layout() {
             </div> */}
 
             {/* Content */}
-            <main className="relative z-10 flex">
+            <main className="relative z-10">
                 <Outlet />
             </main>
 
 
             {/* footer */}
             <footer className="absolute bottom-0 left-0 w-full z-20 p-4 text-black text-center">
-                
+                <Footer />
             </footer>
 
         </div>
