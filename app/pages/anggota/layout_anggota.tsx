@@ -16,14 +16,14 @@ export default function LayoutAnggota() {
 
     ]
     return (
-        <>
+        <div className="">
             <div className="hidden md:block">
                 <DesktopView data={data} />
             </div>
             <div className="block md:hidden">
                 <MobileView data={data} />
             </div>
-        </>
+        </div>
 
     )
 }
@@ -92,127 +92,77 @@ function MobileView({ data }: { data: any }) {
 
 function DesktopView({ data }: { data: any }) {
     return (
-        <div className="mt-30 md:mx-10 lg:mx-30">
-            {/* Title */}
-            <div className="text-4xl text-right text-blue">Maklumat Anggota</div>
+        // full screen
+        <div className="relative w-full min-h-screen overflow-hidden bg-white">
 
-            {/* content */}
-            <div className="flex md:flex-col lg:flex-row items-center-safe justify-center-safe md:gap-0 lg:gap-20 md:mb-20">
-                {/* Icon */}
-                <div className="">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-100">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                    </svg>
+            <img src={bg} className="absolute z-0 top-100%" />
+
+            {/* Content */}
+            <div className="relative z-10 bg-gray-400/50 mt-30 md:mx-10 lg:mx-30">
+                {/* Title */}
+                <div className="text-4xl text-right text-blue">Maklumat Anggota</div>
+
+                {/* content */}
+                <div className="flex md:flex-col lg:flex-row items-center-safe justify-center-safe md:gap-0 lg:gap-20 md:mb-20">
+                    {/* Icon */}
+                    <div className="">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-100">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                        </svg>
+                    </div>
+
+                    {/* data */}
+                    <div className="flex flex-col my-5 md:text-xl lg:text-sm">
+                        <div className="flex flex-row gap-2">
+                            <div className="w-30">No Anggota</div>
+                            <div>{data.memberId}</div>
+                        </div>
+                        <div className="flex flex-row gap-2">
+                            <div className="w-30">No Staff</div>
+                            <div>{data.staffNo}</div>
+                        </div>
+                        <div className="flex flex-row gap-2">
+                            <div className="w-30">Nama</div>
+                            <div>{data.name}</div>
+                        </div>
+                        <div className="flex flex-row gap-2">
+                            <div className="w-30">No KP</div>
+                            <div>{data.icno}</div>
+                        </div>
+                        <div className="flex flex-row gap-2">
+                            <div className="w-30">Email</div>
+                            <div>{data.email}</div>
+                        </div>
+                        <div className="flex flex-row gap-2 mt-3">
+                            <div className="w-30">Akaun Bank</div>
+                            <div>{data.bankAcc}</div>
+                        </div>
+                        <div className="flex flex-row gap-2">
+                            <div className="w-30">Bank</div>
+                            <div>{data.bankName}</div>
+                        </div>
+                        <div className="flex flex-row gap-2 mt-3">
+                            <div className="w-30">No Tel</div>
+                            <div>{data.hp}</div>
+                        </div>
+
+                        <div className="border-t-2 border-solid border-black my-4"></div>
+
+                        <div className="font-light">Maklumat Mesyuarat</div>
+
+                        <div className="mt-3">ZON 1 KOPERASI KAKITANGAN UiTM BERHAD</div>
+                        <div className="font-semibold">Rabu | 25 Februari 2026 | 8.30 PAGI</div>
+
+                        <div className="mt-3">Medium: Google Meet</div>
+                        <div>( Pautan mesyuarat akan diberikan kemudian )</div>
+                    </div>
+                    {/* Dash */}
+
                 </div>
-
-                {/* data */}
-                <div className="flex flex-col my-5 md:text-xl lg:text-sm">
-                    <div className="flex flex-row gap-2">
-                        <div className="w-30">No Anggota</div>
-                        <div>{data.memberId}</div>
-                    </div>
-                     <div className="flex flex-row gap-2">
-                        <div className="w-30">No Staff</div>
-                        <div>{data.staffNo}</div>
-                    </div>
-                     <div className="flex flex-row gap-2">
-                        <div className="w-30">Nama</div>
-                        <div>{data.name}</div>
-                    </div>
-                     <div className="flex flex-row gap-2">
-                        <div className="w-30">No KP</div>
-                        <div>{data.icno}</div>
-                    </div>
-                     <div className="flex flex-row gap-2">
-                        <div className="w-30">Email</div>
-                        <div>{data.email}</div>
-                    </div>
-                     <div className="flex flex-row gap-2 mt-3">
-                        <div className="w-30">Akaun Bank</div>
-                        <div>{data.bankAcc}</div>
-                    </div>
-                     <div className="flex flex-row gap-2">
-                        <div className="w-30">Bank</div>
-                        <div>{data.bankName}</div>
-                    </div>
-                     <div className="flex flex-row gap-2 mt-3">
-                        <div className="w-30">No Tel</div>
-                        <div>{data.hp}</div>
-                    </div>
-
-                    <div className="border-t-2 border-solid border-black my-4"></div>
-
-                    <div className="font-light">Maklumat Mesyuarat</div>
-
-                    <div className="mt-3">ZON 1 KOPERASI KAKITANGAN UiTM BERHAD</div>
-                    <div className="font-semibold">Rabu | 25 Februari 2026 | 8.30 PAGI</div>
-
-                    <div className="mt-3">Medium: Google Meet</div>
-                    <div>( Pautan mesyuarat akan diberikan kemudian )</div>
-                </div>
-                {/* Dash */}
-                
             </div>
         </div>
-        // <div className="flex flex-col min-h-screen justify-center-safe px-40">
-        //     <div className="flex flex-row gap-30">
-        //         {/* Icon */}
-        //         <div className="w-120 max-w-150 mt-8">
-        //             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-120">
-        //                 <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-        //             </svg>
-        //         </div>
 
-        //         {/* Content */}
-        //         <div className="w-120 flex flex-col">
-        //             <h1 className="text-4xl text-right text-blue">Maklumat Anggota</h1>
 
-        //             <div className="flex flex-col mt-10 text-left">
-        //                 <div className="flex flex-row">
-        //                     <div className="w-35 montserrat-light">Member ID </div>
-        //                     <div className="ml-4 ">{data.memberId}</div>
-        //                 </div>
-        //                 <div className="flex flex-row">
-        //                     <div className="w-35 montserrat-light">Staff No</div>
-        //                     <div className="ml-4">{data.staffNo}</div>
-        //                 </div>
-        //                 <div className="flex flex-row">
-        //                     <div className="w-35 montserrat-light">Name</div>
-        //                     <div className="ml-4">{data.name}</div>
-        //                 </div>
-        //                 <div className="flex flex-row">
-        //                     <div className="w-35 montserrat-light">ICNo</div>
-        //                     <div className="ml-4">{data.icno}</div>
-        //                 </div>
-        //                 <div className="flex flex-row">
-        //                     <div className="w-35 montserrat-light">Email</div>
-        //                     <div className="ml-4">{data.email}</div>
-        //                 </div>
 
-        //                 <div className="flex flex-row mt-5">
-        //                     <div className="w-35 montserrat-light">Bank Account</div>
-        //                     <div className="ml-4">{data.bankAcc}</div>
-        //                 </div>
-        //                 <div className="flex flex-row">
-        //                     <div className="w-35 montserrat-light">Nama Bank</div>
-        //                     <div className="ml-4">{data.bankName}</div>
-        //                 </div>
-        //                 <div className="flex flex-row mt-5">
-        //                     <div className="w-35 montserrat-light">Hand Phone No</div>
-        //                     <div className="ml-4">{data.hp}</div>
-        //                 </div>
-
-        //                 <div className="border-t-2 border-dashed border-gray-400 my-4"></div>
-
-        //                 <div className="">Maklumat Mesyuarat: </div>
-        //                 <div className="mt-1">ZON 1 KOPERASI KAKITANGAN UITM BERHAD</div>
-        //                 <div className="font-bold">Rabu | 25 Februari 2026 | 8.30 PAGI</div>
-
-        //                 <div className="mt-3">Medium: Google Meet</div>
-        //                 <div className="font-light -mt-1">( Pautan mesyuarat akan diberikan kemudian )</div>
-        //             </div>
-        //         </div>
-        //     </div>
-        // </div>
     )
 }
