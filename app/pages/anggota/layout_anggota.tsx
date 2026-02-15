@@ -1,10 +1,14 @@
-import bg from "app/assets/1920X1080.jpg"
+import bg from "app/assets/1920X1080_kosong.jpg"
+import Subtext from "~/components/subtext";
+import g1 from "app/assets/g1.png";
+import g2 from "app/assets/g2.png";
+import logo from "app/assets/logo-white.png"
 
 export default function LayoutAnggota() {
     const data = {
         memberId: "11299",
         staffNo: "K-26",
-        name: "MOHD SHUKRI BIN HAJI SAIDIN",
+        name: "MUHAMMAD NAZRIN BIN HAZRUL NIZAM",
         icno: "990101145678",
         email: "shuk@uitmkoop.com",
         bankAcc: "112233445566",
@@ -95,10 +99,19 @@ function DesktopView({ data }: { data: any }) {
         // full screen
         <div className="relative w-full min-h-screen overflow-hidden bg-white">
 
-            <img src={bg} className="absolute z-0 top-100%" />
+            {/* <img src={bg} className="absolute z-0 top-100% object-cover"/> */}
+
+            <img src={g1} className="absolute z-0 top-0 left-0 w-180"/>
+            <img src={g2} className="absolute z-0 bottom-0 right-0 w-120"/>
+            
+            <div className="absolute z-10 top-30 left-10">
+                <Subtext />
+            </div>
+
+            <img src={logo} className="absolute z-10 bottom-10 right-10 w-50" />
 
             {/* Content */}
-            <div className="relative z-10 bg-gray-400/50 mt-30 md:mx-10 lg:mx-30">
+            <div className="relative z-20 mt-30 md:mx-10 lg:mx-30">
                 {/* Title */}
                 <div className="text-4xl text-right text-blue">Maklumat Anggota</div>
 
