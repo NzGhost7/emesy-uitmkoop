@@ -1,7 +1,8 @@
 import bg from "app/assets/1920X1080_kosong.jpg"
 import Subtext from "~/components/subtext";
-import g1 from "app/assets/g1.png";
-import g2 from "app/assets/g2.png";
+import g1 from "app/assets/BACKGROUND_OMBAKATAS.png";
+import g2 from "app/assets/BACKGROUND_OMBAKBAWAH.png";
+import g3 from "app/assets/gfx.png"
 import logo from "app/assets/logo-white.png"
 
 export default function LayoutAnggota() {
@@ -101,17 +102,18 @@ function DesktopView({ data }: { data: any }) {
 
             {/* <img src={bg} className="absolute z-0 top-100% object-cover"/> */}
 
-            <img src={g1} className="absolute z-0 top-0 left-0 w-180"/>
-            <img src={g2} className="absolute z-0 bottom-0 right-0 w-120"/>
-            
+            <img src={g1} className="absolute z-0 top-0 left-0 w-230" />
+            <img src={g2} className="absolute z-0 bottom-0 right-0 w-120" />
+            <img src={g3} className="absolute z-0 bottom-0 left-10 w-230 opacity-20" />
+
             <div className="absolute z-10 top-30 left-10">
                 <Subtext />
             </div>
 
-            <img src={logo} className="absolute z-10 bottom-10 right-10 w-50" />
+            <img src={logo} className="absolute z-10 bottom-10 right-20 w-40" />
 
             {/* Content */}
-            <div className="relative z-20 mt-30 md:mx-10 lg:mx-30">
+            <div className="relative z-20 mt-40 md:mx-10 lg:mx-30">
                 {/* Title */}
                 <div className="text-4xl text-right text-blue">Maklumat Anggota</div>
 

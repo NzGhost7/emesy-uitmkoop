@@ -1,4 +1,9 @@
 import pdficon from "app/assets/PDF.png"
+import Subtext from "~/components/subtext";
+import g1 from "app/assets/BACKGROUND_OMBAKATAS.png";
+import g2 from "app/assets/BACKGROUND_OMBAKBAWAH.png";
+import g3 from "app/assets/gfx.png"
+import logo from "app/assets/logo-white.png"
 
 export default function LayoutDownload() {
     const datadw = [
@@ -21,26 +26,45 @@ export default function LayoutDownload() {
 
 function DesktopView({ data }: { data: any[] }) {
     return (
-        <div className="mt-30 md:mx-20 lg:mx-30">
-            {/* Title */}
-            <div className="text-4xl text-right text-blue">Muat Turun</div>
 
-            {/* content */}
-            <div className="flex flex-col gap-5 mt-10 items-end-safe">
-                {data.map((item, index) => (
-                    <div key={index} className="bg-gray-300 max-w-150 justify-between rounded-lg flex flex-row gap-5 px-5 py-5 items-center-safe cursor-pointer group hover:bg-blue-hover group active:bg-blue-hover">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="size-6 bi bi-filetype-pdf group-hover:stroke-white group-active:text-white" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM1.6 11.85H0v3.999h.791v-1.342h.803q.43 0 .732-.173.305-.175.463-.474a1.4 1.4 0 0 0 .161-.677q0-.375-.158-.677a1.2 1.2 0 0 0-.46-.477q-.3-.18-.732-.179m.545 1.333a.8.8 0 0 1-.085.38.57.57 0 0 1-.238.241.8.8 0 0 1-.375.082H.788V12.48h.66q.327 0 .512.181.185.183.185.522m1.217-1.333v3.999h1.46q.602 0 .998-.237a1.45 1.45 0 0 0 .595-.689q.196-.45.196-1.084 0-.63-.196-1.075a1.43 1.43 0 0 0-.589-.68q-.396-.234-1.005-.234zm.791.645h.563q.371 0 .609.152a.9.9 0 0 1 .354.454q.118.302.118.753a2.3 2.3 0 0 1-.068.592 1.1 1.1 0 0 1-.196.422.8.8 0 0 1-.334.252 1.3 1.3 0 0 1-.483.082h-.563zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638z" />
-                        </svg>
-                        <div className="font-light w-130 text-left group-hover:font-normal group-active:font-normal">{item.name}</div>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-6 group-hover:stroke-white group-active:text-white">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
-                        </svg>
+        // full screen
+        <div className="relative w-full min-h-screen overflow-hidden bg-white">
 
-                    </div>
-                ))}
+            {/* Background */}
+            <img src={g1} className="absolute z-0 top-0 left-0 w-230" />
+            <img src={g2} className="absolute z-0 bottom-0 right-0 w-120" />
+            <img src={g3} className="absolute z-0 bottom-0 left-10 w-230 opacity-20"/>
+
+            <div className="absolute z-10 top-35 left-10">
+                <Subtext />
+            </div>
+
+            <img src={logo} className="absolute z-10 bottom-10 right-20 w-40" />
+
+
+            {/* Content */}
+            <div className="relative z-20 mt-40 md:mx-20 lg:mx-30">
+                {/* Title */}
+                <div className="text-4xl text-right text-blue">Muat Turun</div>
+
+                {/* content */}
+                <div className="flex flex-col gap-5 mt-10 items-end-safe">
+                    {data.map((item, index) => (
+                        <div key={index} className="bg-gray-300 max-w-150 justify-between rounded-lg flex flex-row gap-5 px-5 py-5 items-center-safe cursor-pointer group hover:bg-blue-hover group active:bg-blue-hover">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="size-6 bi bi-filetype-pdf group-hover:stroke-white group-active:text-white" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M14 4.5V14a2 2 0 0 1-2 2h-1v-1h1a1 1 0 0 0 1-1V4.5h-2A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v9H2V2a2 2 0 0 1 2-2h5.5zM1.6 11.85H0v3.999h.791v-1.342h.803q.43 0 .732-.173.305-.175.463-.474a1.4 1.4 0 0 0 .161-.677q0-.375-.158-.677a1.2 1.2 0 0 0-.46-.477q-.3-.18-.732-.179m.545 1.333a.8.8 0 0 1-.085.38.57.57 0 0 1-.238.241.8.8 0 0 1-.375.082H.788V12.48h.66q.327 0 .512.181.185.183.185.522m1.217-1.333v3.999h1.46q.602 0 .998-.237a1.45 1.45 0 0 0 .595-.689q.196-.45.196-1.084 0-.63-.196-1.075a1.43 1.43 0 0 0-.589-.68q-.396-.234-1.005-.234zm.791.645h.563q.371 0 .609.152a.9.9 0 0 1 .354.454q.118.302.118.753a2.3 2.3 0 0 1-.068.592 1.1 1.1 0 0 1-.196.422.8.8 0 0 1-.334.252 1.3 1.3 0 0 1-.483.082h-.563zm3.743 1.763v1.591h-.79V11.85h2.548v.653H7.896v1.117h1.606v.638z" />
+                            </svg>
+                            <div className="font-light w-130 text-left group-hover:font-normal group-active:font-normal">{item.name}</div>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-6 group-hover:stroke-white group-active:text-white">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                            </svg>
+
+                        </div>
+                    ))}
+                </div>
             </div>
         </div>
+
     )
 }
 
