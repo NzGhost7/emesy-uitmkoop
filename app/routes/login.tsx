@@ -1,14 +1,21 @@
-import { Form, redirect, useActionData } from "react-router";
+import { Form, Link, redirect, useActionData } from "react-router";
 import type { Route } from "./+types/login";
-import logo from "~/assets/uitm1.png"
+// import logo from "~/assets/uitm1.png"
+import Subtext from "~/components/subtext";
+import g1 from "app/assets/BACKGROUND_OMBAKATAS.png";
+import g2 from "app/assets/BACKGROUND_OMBAKBAWAH.png";
+import g3 from "app/assets/gfx.png"
+import logo from "app/assets/logo-blue.png"
 
 export async function action({ request }: Route.ActionArgs) {
     const formData = await request.formData()
-    const username = formData.get("username")
-    const password = formData.get("password")
+    const username = formData.get("NoMemberShip")
+    const password = formData.get("icno")
 
     if (!username || !password) {
-        return { error: "Username and password are required." }
+        return { error: "Sila masukkan No Anggota dan No Kad Pengenalan anda" }
+    } else if (username != "qwe" || password != "123") {
+        return { error: "Pastikan No Anggota dan No Kad Pengenalan anda adalah betul" }
     }
 
     return redirect("/anggota");
@@ -17,60 +24,58 @@ export async function action({ request }: Route.ActionArgs) {
 export default function Login() {
     const actionData = useActionData()
     return (
-        <div className="flex flex-col gap-10 items-center-safe justify-center-safe min-h-screen" style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), url(${''})`, backgroundSize: 'cover', minHeight: '100vh', }}>
+        //full screen
+        <div className="relative w-full min-h-screen flex flex-col justify-center-safe overflow-hidden">
+            <img src={g1} className="absolute z-0 top-0 left-0 w-230" />
+            <img src={g2} className="absolute z-0 bottom-0 right-0 w-120" />
+            <img src={g3} className="absolute -z-10 bottom-0 left-10 w-180 lg:opacity-100 md:opacity-20" />
 
-            <div className="">
-                {/* Logo */}
-                <img src={logo} alt="Logo" className="w-80" />
+            <div className="absolute z-10 top-30 left-10">
+                <Subtext />
             </div>
 
+            <img src={logo} className="absolute z-10 top-30 right-20 w-40" />
 
-
-            <div className="flex flex-row border-2 border-one rounded-2xl">
-                {/* login */}
-                <div className="py-10 px-10 w-80 bg-white rounded-l-2xl">
-
-                    <h1 className="pb-5 text-center font-bold text-lg">Welcome</h1>
+            {/* Content */}
+            <div className="flex flex-col sm:mx-30 md:mx-50 lg:mx-80 items-end">
+                <div className="relative z-20  w-sm flex flex-col gap-5 justify-center-safe">
+                    {/* Section 1 */}
+                    <div className="flex flex-col">
+                        <div className="font-bold text-2xl text-blue">Selamat Datang!</div>
+                        <div className="font-bold">Mesyuarat Agung Kawasan Ke-18</div>
+                        <div className="-mt-1.5">Koperasi Kakitangan UiTM Berhad</div>
+                    </div>
 
                     {actionData?.error && (
-                        <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded mb-5 relative" role="alert">
+                        <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded relative" role="alert">
                             <span className="block sm:inline">{actionData.error}</span>
                         </div>
                     )}
 
-                    <Form method="post" className="flex flex-col gap-3">
+                    {/* Input or Form */}
+                    <Form method="POST" className="flex flex-col gap-5">
 
-                        {/* username */}
-                        <div className="relative">
-                            <div className="absolute inset-y-0 start-0 flex items-center ps-2.5 pointer-events-none">
-                                <svg className="w-6 h-6 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                    <path stroke="currentColor" stroke-width="2" d="M7 17v1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1a3 3 0 0 0-3-3h-4a3 3 0 0 0-3 3Zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                                </svg>
-                            </div>
-                            <input type="text" id="username" name="username" className="block w-full ps-10 pe-3 py-2 text-sm border border-gray-600 rounded-lg placeholder:text-body" placeholder="Username" />
+                        {/* No Anggota */}
+                        <div className="flex flex-col">
+                            <label className="flex flex-row gap-1 font-bold">No. Anggota<p className="text-red">*</p></label>
+                            <input type="text" id="NoMemberShip" name="NoMemberShip" placeholder="k-XX" className="w-sm p-2 rounded-lg ring ring-gray-400" />
                         </div>
 
-
-                        {/* password */}
-                        <div className="relative">
-                            <div className="absolute inset-y-0 start-0 flex items-center ps-2.5 pointer-events-none">
-                                <svg className="w-6 h-6 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14v3m-3-6V7a3 3 0 1 1 6 0v4m-8 0h10a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1Z" />
-                                </svg>
-
-                            </div>
-                            <input type="password" id="password" name="password" className="block w-full ps-10 pe-3 py-2 text-sm border border-gray-600 rounded-lg placeholder:text-body" placeholder="Password" />
-
+                        {/* No KP */}
+                        <div>
+                            <label className="flex flex-row gap-1 font-bold">No. Kad Pengenalan<p className="text-red">*</p></label>
+                            <input type="text" id="icno" name="icno" placeholder="Cth: 95063003XXXX" className="w-sm p-2 rounded-lg ring ring-gray-400" />
                         </div>
 
-                        {/* Button */}
-                        <button type="submit" className="py-2 mt-2 bg-one hover:bg-two rounded-lg text-white">Login</button>
+                        {/* Forget No Anggota */}
+                        <div className="w-sm flex flex-row justify-end-safe">
+                            <Link to="/forget" className="text-sm px-2 underline hover:text-blue-700">Lupa No Anggota?</Link>
+                        </div>
+
+                        {/* Login */}
+                        <button className="p-2 w-sm rounded-lg bg-blue hover:bg-blue/90 text-white">Login</button>
+
                     </Form>
-                </div>
-
-                <div className="flex flex-col justify-center-safe bg-one rounded-r-2xl w-80">
-                    {/* <h2 className="text-white text-center">MyInvoice Logo</h2> */}
-
                 </div>
             </div>
 

@@ -104,7 +104,7 @@ function DesktopView({ data }: { data: any }) {
 
             <img src={g1} className="absolute z-0 top-0 left-0 w-230" />
             <img src={g2} className="absolute z-0 bottom-0 right-0 w-120" />
-            <img src={g3} className="absolute z-0 bottom-0 left-10 w-230 opacity-20" />
+            <img src={g3} className="absolute z-0 bottom-0 left-10 w-180 opacity-20" />
 
             <div className="absolute z-10 top-30 left-10">
                 <Subtext />
