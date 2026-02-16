@@ -12,16 +12,6 @@ export default function Layout() {
                 <Navbar />
             </header>
 
-            {/* Background */}
-            {/* <div className="absolute inset-0 z-0">
-                <img
-                    src={bg}
-                    alt="Full Screen background"
-                    className="h-full w-full object-cover"
-                />
-                
-            </div> */}
-
             {/* Content */}
             <main className="relative z-10">
                 <Outlet />
